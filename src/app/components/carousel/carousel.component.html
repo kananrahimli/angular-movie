@@ -1,0 +1,43 @@
+<div class="carousel">
+  <ng-container *ngIf="topRatedMovies[0]">
+    <c-carousel [animate]="true" transition="crossfade" [interval]="5000" [pause]="false" [wrap]="true">
+      <!-- <c-carousel-indicators></c-carousel-indicators> -->
+      <c-carousel-inner class="h-100">
+        
+        <c-carousel-item *ngFor="let slide of topRatedMovies">
+          <div class="backgorund">
+            <img
+              alt=""
+              class=""
+              
+              [src]="
+                'https://image.tmdb.org/t/p/original/' + slide.backdrop_path
+              "
+            />
+          </div>
+
+          <c-carousel-caption
+            class="carousel-item-info d-flex flex-column align-items-start text-start px-5"
+          >
+            <h3 class="mb-2">{{ slide.original_title }}</h3>
+            <span class="d-flex align-items-center">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                fontIcon="star"
+                style="color: gold"
+              ></mat-icon>
+              <span class="ml-2 detail">{{ slide.vote_average }}</span>
+              <span class="ml-2 detail">{{ slide.vote_count }}</span>
+              <span class="ml-3 detail">{{ slide.release_date | date }}</span>
+            </span>
+            <div class="carousel-overview mt-4 w-50">{{ slide.overview }}</div>
+          </c-carousel-caption>
+        </c-carousel-item>
+      </c-carousel-inner>
+
+      <!-- <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+            <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control> -->
+    </c-carousel>
+  </ng-container>
+</div>

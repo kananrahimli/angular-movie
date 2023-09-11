@@ -1,0 +1,22 @@
+<div class="movie-item mx-2">
+  <a [routerLink]="'/movie/' + currentMovieItem?.id">
+    <mat-card class="example-card">
+      <span class="d-flex align-items-center card-raiting"
+        ><mat-icon fontIcon="star" style="color: gold"></mat-icon>
+        <span>{{currentMovieItem?.vote_average}}/10</span></span
+      >
+      <img
+        mat-card-image
+        [src]="
+          'https://image.tmdb.org/t/p/original/' + currentMovieItem?.poster_path
+        "
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content class="content py-3">
+        <p>
+          {{ currentMovieItem?.original_title }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </a>
+</div>

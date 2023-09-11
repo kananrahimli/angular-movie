@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="mybreakpoint" rowHeight="1:1.5" (window:resize)="handleSize($event)" >
+  <mat-grid-tile *ngFor="let movieItem of currentMovies">
+    <app-movie-item [currentMovieItem]="movieItem" ></app-movie-item>
+  </mat-grid-tile>
+</mat-grid-list>

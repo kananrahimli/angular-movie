@@ -1,0 +1,7 @@
+<app-search-item (searchQuery)="getMovieBySearchQuery($event)"></app-search-item>
+<div class="movie-list">
+    <app-movie-list [currentMovies]="movieLists"></app-movie-list>
+</div>
+<app-pagination (getPageNumber)="getMoviesPageNumber($event)" [size]="movieLists.length"></app-pagination>
+
+<h2 *ngIf="movieLists.length<1">Film not found</h2>

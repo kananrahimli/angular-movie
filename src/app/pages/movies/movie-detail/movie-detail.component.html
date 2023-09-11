@@ -1,0 +1,107 @@
+<div class="movie-detail">
+  <app-banner [bannerItem]="movieItem"></app-banner>
+  <div class="my-3 text-white" *ngIf="movieItem">
+    <mat-tab-group>
+      <mat-tab class="mat-tab" label="Overview ">
+        <div class="py-5 movie-overview">
+          <div class="row align-items-center">
+            <div class="col-md-3">
+              <img
+                [src]="
+                  'https://image.tmdb.org/t/p/original/' + movieItem.poster_path
+                "
+                alt=""
+              />
+            </div>
+            <div class="col-md-9">
+              <div class="px-3">
+                <h2>Overview</h2>
+                <p>{{ movieItem.overview }}</p>
+                <dl class="movie-overview-list list-unstyled mt-3">
+                  <dt>Relased date:</dt>
+                  <dd>{{ movieItem.release_date }}</dd>
+                  <dt>Language</dt>
+                  <dd>{{ movieItem.original_language }}</dd>
+                  <dt>Revenue</dt>
+                  <dd>${{ movieItem.revenue }}</dd>
+                  <dt>Runtime</dt>
+                  <dd>{{ movieItem.runtime }} min</dd>
+                  <dt>Status</dt>
+                  <dd>{{ movieItem.status }}</dd>
+                  <dt>Genres</dt>
+                  <dd *ngFor="let item of movieItem.genres">{{ item.name }}</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab class="mat-tab" label="Images">
+        <div class="movie-detail-images">
+          <div class="row">
+            <div class="col-md-3 mb-3" *ngFor="let image of movieItemImages">
+              <img
+                [src]="'https://image.tmdb.org/t/p/original/' + image.file_path"
+              />
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab class="mat-tab" label="Videos">
+        <div class="row justify-content-center">
+          <div
+            class="col-md-4 my-3"
+            *ngFor="let movieItemVideo of movieItemVideos"
+          >
+            <app-movie-item-videos
+              [movieItemVideo]="movieItemVideo"
+            ></app-movie-item-videos>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="movie-detail-actors text-white">
+    <p-carousel
+      [value]="movieItemActors"
+      [numVisible]="6"
+      [numScroll]="6"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      autoPlayInterval="3000"
+    >
+      <ng-template
+      
+        let-actor
+        pTemplate="item"
+        class="p-carousel-item"
+    
+    
+        
+      >
+        <div
+          class="border-1 surface-border border-round m-2 text-center py-5 px-3"
+        >
+          <div class="mb-3">
+            <img
+              [src]="
+                'https://image.tmdb.org/t/p/original/' + actor?.profile_path
+              "
+              class="w-6 shadow-2"
+              style="width: 100%; height: 100%"
+            />
+          </div>
+          <div>
+            <h4 class="mb-1">{{ actor?.original_name }}</h4>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+  <div class="similar-movies text-white my-4">
+    <h1>Similar Movies</h1>
+    <app-movie-list [currentMovies]="similarMovies"></app-movie-list>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.search{
+    padding: 0px 8px;
+    input{
+        width: 100%;
+        background: #5e5c5c;
+        color: #fff;
+        padding: 16px 14px;
+        border-radius: 8px;
+        width: 100%;
+        margin: 18px 0px;
+    }
+
+    ::placeholder{
+        color: #fff;
+    }
+}

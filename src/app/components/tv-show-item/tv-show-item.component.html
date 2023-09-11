@@ -1,0 +1,23 @@
+<div class="movie-item mx-2">
+    <a [routerLink]="'/tv-show/' + currentTvShow?.id">
+      <mat-card class="example-card">
+        <span class="d-flex align-items-center card-raiting"
+          ><mat-icon fontIcon="star" style="color: gold"></mat-icon>
+          <span>{{currentTvShow?.vote_average}}/10</span></span
+        >
+        <img
+          mat-card-image
+          [src]="
+            'https://image.tmdb.org/t/p/original/' + currentTvShow?.poster_path
+          "
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content class="content py-3">
+          <p>
+            {{ currentTvShow?.original_name }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+  

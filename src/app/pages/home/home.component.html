@@ -1,0 +1,18 @@
+<div class="home" *ngIf="!loading ; else ldng">
+    <app-carousel [topRatedMovies]="topRatedMovies" ></app-carousel>
+<div *ngIf="!loading">
+
+    <h1  class="m-2" style="font-weight: 600; text-decoration: underline;">Popular Movies</h1>
+    <app-movie-list [currentMovies]="popularMovies"></app-movie-list>
+    <h1  class="m-2 mt-5" style="font-weight: 600; text-decoration: underline;">Top Rated</h1>
+    <app-movie-list [currentMovies]="upComingMovies"></app-movie-list>
+</div>
+
+</div>
+
+
+
+<ng-template #ldng>
+    <h1 style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">Loading.....</h1>
+</ng-template>
+

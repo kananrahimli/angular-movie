@@ -1,0 +1,7 @@
+<app-search-item (searchQuery)="getTvShowBySearchQuery($event)"></app-search-item>
+<div class="tv-shows-list">
+    <app-tv-show-list [currentTvShows]="tvShows"></app-tv-show-list>
+</div>
+<app-pagination (getPageNumber)="getTvShowPageNumber($event)" [size]="tvShows.length"></app-pagination>
+
+<h2 *ngIf="tvShows.length<1">Film not found</h2>
