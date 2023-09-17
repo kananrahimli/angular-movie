@@ -1,1 +1,26 @@
-<p>genres works!</p>
+<div
+  class="genres text-white container"
+>
+  <div class="my-auto">
+      <h1 class="text-center my-3">Movie genres</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-3"*ngFor="let genre of movieGenres">
+            <app-genre-item
+            
+            [genreItem]="genre" genreType="movie"
+          ></app-genre-item>
+        </div>
+      
+
+    </div>
+    <h1 class="text-center my-3">Tv show genres</h1>
+    <div class="row justify-content-center">
+     <div class="col-md-3" *ngFor="let genre of tvGenres">
+        <app-genre-item
+        genreType="tv"
+        [genreItem]="genre"
+      ></app-genre-item>
+     </div>
+    </div>
+  </div>
+</div>

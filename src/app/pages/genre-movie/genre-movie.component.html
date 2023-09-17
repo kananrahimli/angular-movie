@@ -1,0 +1,8 @@
+<div class="genres-movies_tvshows">
+    <div class="movie-list">
+        <app-movie-list [currentMovies]="genreMovieList"></app-movie-list>
+    </div>
+</div>
+
+<app-pagination (getPageNumber)="getMoviesPageNumber($event)" [size]="commonGenres?commonGenres.total_pages:null"></app-pagination>
+

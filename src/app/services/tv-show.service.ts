@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CommonTvSeries } from '../models/tv-show';
 import { of, switchMap } from 'rxjs';
+import { CommonImageModel, CommonMovieActors, CommonMovieVideos, CommponMovieModel, Movie } from '../models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,30 @@ export class TvShowService {
 
   searchTvShows(query:string,page:number=1){
     return this.http.get<CommonTvSeries>(`${this.searchUrl}/tv?api_key=${this.api_key}&query=${query}&page=${page}`)
+  }
+
+  getMovieById(id?:string|null){
+    return this.http.get<Movie>(`${this.baseUrl}/${id}?api_key=${this.api_key}`)
+  }
+
+  getMovieImages(id:string | null){
+    return this.http.get<CommonImageModel>(`${this.baseUrl}/${id}/images?api_key=${this.api_key}`)
+  }
+
+  getMovieVideos(id:string|null){
+    return this.http.get<CommonMovieVideos>(`${this.baseUrl}/${id}/videos?api_key=${this.api_key}`)
+  }
+
+  getMovieActors(id:string|null){
+    return this.http.get<CommonMovieActors>(`${this.baseUrl}/${id}/credits?api_key=${this.api_key}`)
+   
+  }
+
+  getSimilarMovies(id:string|null, size:number){
+    return this.http.get<CommponMovieModel>(`${this.baseUrl}/${id}/similar?api_key=${this.api_key}`).pipe(switchMap(data=>{
+      return of(data.results.slice(0,size))
+    }))
+    
   }
 
   

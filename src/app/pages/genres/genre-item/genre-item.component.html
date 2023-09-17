@@ -1,0 +1,14 @@
+<span class="genre-item">
+    <ng-container *ngIf="genreType=='movie'; else genreTv">
+        <a [routerLink]="'/genre/movies/'+genreItem.id">
+            {{genreItem.name}}
+           </a>
+    </ng-container>
+    <ng-template #genreTv>
+        <a [routerLink]="'/genre/tv-shows/'+genreItem.id">
+            {{genreItem.name}}
+           </a>
+    </ng-template>
+    
+  
+</span>

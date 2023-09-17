@@ -2,7 +2,10 @@
     max-height: 80vh;
     overflow: hidden;
       
-    
+    @media screen and (max-width:768px) {
+        height: auto;
+
+    }
     .backgorund{
 
         &:after {
@@ -37,12 +40,23 @@ img{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    @media screen and (max-width:576px) {
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%,0%);
 
+    }
+
+   
 
     h3{
         font-size: 48px;
         font-weight: 900;
         line-height: 40px;
+        @media screen and (max-width:768px) {
+            font-size: 24px;
+    
+        }
     }
 
     .detail:not(:last-child){
@@ -53,6 +67,13 @@ img{
 
     .carousel-overview{
         font-size: 18px;
+        
+        width: 50%;
+        @media screen and (max-width:768px) {
+            font-size: 14px;
+    width: 100%;
+        }
+
     }
 
 }

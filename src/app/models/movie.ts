@@ -19,7 +19,8 @@ export interface Movie {
   runtime: 155,
   revenue:number,
   status:string,
-
+  first_air_date:string,
+   original_name:string
 }
 
 export interface CommponMovieModel{

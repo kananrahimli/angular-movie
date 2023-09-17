@@ -8,7 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PaginationComponent  implements OnInit{
   @Output() getPageNumber = new EventEmitter<number>();
-  @Input() size!:number
+  @Input() size!:number|null
  
   currentPage!:number
   ngOnInit(): void {

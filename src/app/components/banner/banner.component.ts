@@ -7,5 +7,5 @@ import { Movie } from 'src/app/models/movie';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent {
-@Input() bannerItem!:Movie
+@Input() bannerItem!:any
 }

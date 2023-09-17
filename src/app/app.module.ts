@@ -36,6 +36,8 @@ import { CarouselModule as PrimeCarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TvShowListComponent } from './components/tv-show-list/tv-show-list.component';
 import {  TvShowItemComponent as TvshowItem} from './components/tv-show-item/tv-show-item.component';
+import { GenreItemComponent } from './pages/genres/genre-item/genre-item.component';
+import { GenreMovieComponent } from './pages/genre-movie/genre-movie.component';
 
 // import {MatCardHeader} from '@angular/material/card';
 // import {MatCardContent} from '@angular/material/card';
@@ -61,7 +63,9 @@ import {  TvShowItemComponent as TvshowItem} from './components/tv-show-item/tv-
     BannerComponent,
     MovieItemVideosComponent,
     TvShowListComponent,
-    TvshowItem
+    TvshowItem,
+    GenreItemComponent,
+    GenreMovieComponent
     
   ],
   imports: [

@@ -14,7 +14,7 @@ export class TvShowsComponent implements OnInit {
   constructor(private tvShowService: TvShowService) {}
 
   ngOnInit(): void {
-    this.getTvShows('airing_today', 1);
+    this.getTvShows('top_rated', 1);
   }
 
   getTvShows(type: string, page: number, size?: number) {

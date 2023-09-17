@@ -10,6 +10,7 @@ export interface TvSeries {
       poster_path: string,
       vote_average: number,
       vote_count: number
+      original_language:string
   }
 
   export interface CommonTvSeries{

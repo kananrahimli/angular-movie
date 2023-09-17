@@ -1,6 +1,6 @@
 <div class="carousel">
   <ng-container *ngIf="topRatedMovies[0]">
-    <c-carousel [animate]="true" transition="crossfade" [interval]="5000" [pause]="false" [wrap]="true">
+    <c-carousel [animate]="true" transition="crossfade" [interval]="50000" [pause]="false" [wrap]="true">
       <!-- <c-carousel-indicators></c-carousel-indicators> -->
       <c-carousel-inner class="h-100">
         
@@ -31,7 +31,7 @@
               <span class="ml-2 detail">{{ slide.vote_count }}</span>
               <span class="ml-3 detail">{{ slide.release_date | date }}</span>
             </span>
-            <div class="carousel-overview mt-4 w-50">{{ slide.overview }}</div>
+            <div class="carousel-overview mt-4 ">{{ slide.overview }}</div>
           </c-carousel-caption>
         </c-carousel-item>
       </c-carousel-inner>

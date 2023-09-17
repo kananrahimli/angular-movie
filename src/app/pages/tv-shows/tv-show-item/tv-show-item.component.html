@@ -1,6 +1,6 @@
-<!-- <div class="movie-detail">
-    <app-banner [bannerItem]="movieItem"></app-banner>
-    <div class="my-3 text-white" *ngIf="movieItem">
+<div class="movie-detail">
+    <app-banner [bannerItem]="tvShow"></app-banner>
+    <div class="my-3 text-white" *ngIf="tvShow">
       <mat-tab-group>
         <mat-tab class="mat-tab" label="Overview ">
           <div class="py-5 movie-overview">
@@ -8,7 +8,7 @@
               <div class="col-md-3">
                 <img
                   [src]="
-                    'https://image.tmdb.org/t/p/original/' + movieItem.poster_path
+                    'https://image.tmdb.org/t/p/original/' + tvShow.poster_path
                   "
                   alt=""
                 />
@@ -16,20 +16,19 @@
               <div class="col-md-9">
                 <div class="px-3">
                   <h2>Overview</h2>
-                  <p>{{ movieItem.overview }}</p>
+                  <p>{{ tvShow.overview }}</p>
                   <dl class="movie-overview-list list-unstyled mt-3">
                     <dt>Relased date:</dt>
-                    <dd>{{ movieItem.release_date }}</dd>
-                    <dt>Language</dt>
-                    <dd>{{ movieItem.original_language }}</dd>
-                    <dt>Revenue</dt>
-                    <dd>${{ movieItem.revenue }}</dd>
-                    <dt>Runtime</dt>
-                    <dd>{{ movieItem.runtime }} min</dd>
+                    <dd>{{ tvShow.first_air_date }}</dd>
+                    <dt>Nam</dt>
+                    <dd>{{ tvShow.original_language }}</dd>
+                    
+                    <dt>Vote count</dt>
+                    <dd>{{ tvShow.vote_count }} </dd>
                     <dt>Status</dt>
-                    <dd>{{ movieItem.status }}</dd>
+                    <dd>{{ tvShow.vote_average }}</dd>
                     <dt>Genres</dt>
-                    <dd *ngFor="let item of movieItem.genres">{{ item.name }}</dd>
+                    <dd *ngFor="let item of tvShow.genre_ids">{{ item }}</dd>
                   </dl>
                 </div>
               </div>
@@ -39,7 +38,7 @@
         <mat-tab class="mat-tab" label="Images">
           <div class="movie-detail-images">
             <div class="row">
-              <div class="col-md-3 mb-3" *ngFor="let image of movieItemImages">
+              <div class="col-md-3 mb-3" *ngFor="let image of tvShowImages">
                 <img
                   [src]="'https://image.tmdb.org/t/p/original/' + image.file_path"
                 />
@@ -51,10 +50,10 @@
           <div class="row justify-content-center">
             <div
               class="col-md-4 my-3"
-              *ngFor="let movieItemVideo of movieItemVideos"
+              *ngFor="let tvShowVideo of tvShowVideos"
             >
               <app-movie-item-videos
-                [movieItemVideo]="movieItemVideo"
+                [movieItemVideo]="tvShowVideo"
               ></app-movie-item-videos>
             </div>
           </div>
@@ -64,7 +63,7 @@
   
     <div class="movie-detail-actors text-white">
       <p-carousel
-        [value]="movieItemActors"
+        [value]="tvShowActors"
         [numVisible]="6"
         [numScroll]="6"
         [circular]="true"
@@ -102,7 +101,7 @@
   
     <div class="similar-movies text-white my-4">
       <h1>Similar Movies</h1>
-      <app-movie-list [currentMovies]="similarMovies"></app-movie-list>
+      <app-tv-show-list [currentTvShows]="similarTvShow"></app-tv-show-list>
     </div>
   </div>
-   -->
+  

@@ -7,7 +7,7 @@
   </div>
 
   <div class="movie-props">
-    <h1>{{ bannerItem.original_title }}</h1>
+    <h1>{{ bannerItem.original_name?bannerItem.original_name:bannerItem.original_title }}</h1>
     <span class="d-flex align-items-center mb-4">
       <mat-icon
         aria-hidden="false"
@@ -15,11 +15,11 @@
         fontIcon="star"
         style="color: gold"
       ></mat-icon>
-      <span class="ml-2 detail">{{ bannerItem.vote_count }}</span>
-      <span class="ml-3 detail">{{ bannerItem.release_date | date }}</span>
+      <span class="ml-2 detail">{{ bannerItem.vote_count }} <span class="ml-2">|</span></span>   
+      <span class="ml-2 detail">{{ bannerItem.release_date?bannerItem.release_date:bannerItem.first_air_date | date }} <span class="ml-2">|</span></span>
       <span class="ml-2 detail">{{ bannerItem.vote_average }}</span>
     </span>
-    <div class="w-50">
+    <div class=" banner-overview">
       <h5>{{ bannerItem.overview }}</h5>
     </div>
   </div>
